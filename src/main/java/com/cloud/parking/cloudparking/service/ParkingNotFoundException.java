@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ParkingService {
+public class ParkingNotFoundException {
 
     private final ParkingRepository parkingRepository;
 
-    public ParkingService(ParkingRepository parkingRepository) {
+    public ParkingNotFoundException(ParkingRepository parkingRepository) {
         this.parkingRepository = parkingRepository;
     }
 
@@ -23,7 +23,7 @@ public class ParkingService {
         return parkingRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+    @Transactional( = true)
     public Parking findById(String id) {
         return parkingRepository.findById(id).orElseThrow(
                 () -> new ParkingNotFoundException(id));
